@@ -4,8 +4,10 @@ This documentation file outlines my nuanced rationale for choosing certain libra
 
 
 - Black
+- flake8, flake8-docstrings, flake8-copyright, flake8-builtins, pyproject-flake8?
 - isort
 - codespell
+- pep8-naming
 
 
 - logger
@@ -13,3 +15,7 @@ This documentation file outlines my nuanced rationale for choosing certain libra
 
 
 - pytest?
+
+- coverage.run?
+- coverage.report?
+

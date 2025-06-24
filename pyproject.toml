@@ -10,17 +10,31 @@ packages = [{include = "src"}]
 python = "^3.8"
 psutil = "^5.9.0"
 pyyaml = "^6.0"
-click = "^8.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0.0"
 mypy = "^1.0.0"
 black = "^22.0.0"
 flake8 = "^4.0.1"
+pytest-cov = "^4.1.0"
+types-psutil = "^5.9.0"
+types-PyYAML = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-service-guardian = "src.cli:main" 
+service-guardian = "src.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "--cov=src --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true 

@@ -3,15 +3,16 @@
 This tool monitors `systemd` services (background processes/daemons that run on Linux systems), handling everything from your network stack to databases to web servers. Common examples include nginx (web server), postgresql (database), docker.service (container runtime), or ssh.service (secure shell).
 
 
-- The guardian service starts up through `systemd`
 
-- It reads configuration for which services to monitor
+## Get Started
 
-- Checks status using `systemctl`
 
-- Collects metrics using `ps/top`
+1. Install *poetry*
 
-- Monitors logs using `journalctl`
+```
+sudo apt install python3-poetry
+```
+
 
 
 To check all available services on your system:
