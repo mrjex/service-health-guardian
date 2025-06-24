@@ -1,5 +1,7 @@
 # Development Process
 
+Note that step 2 and 3 occured simultanously in a back and forth iterative fashion, as the core functionality served as the baseline for the tests.
+
 1. Ideation (CLI blueprint & blueprint shell scripts)
     - CLI blueprint: Specific actions and ideation of functionality that it should support
     - Shell Script: Building on what I concluded in the previous stage, being the phase where I came up with the blueprint, I then envisioned how shell scripts would interact with this repository. This is a way of getting a more tangible and concrete understanding of how it would look like interacting with the tool
