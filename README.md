@@ -1,5 +1,8 @@
 # Service Health Guardian
 
+This tool monitors `systemd` services (background processes/daemons that run on Linux systems), handling everything from your network stack to databases to web servers. Common examples include nginx (web server), postgresql (database), docker.service (container runtime), or ssh.service (secure shell).
+
+
 - The guardian service starts up through `systemd`
 
 - It reads configuration for which services to monitor
@@ -9,6 +12,18 @@
 - Collects metrics using `ps/top`
 
 - Monitors logs using `journalctl`
+
+
+To check all available services on your system:
+
+```bash
+# List all active services
+systemctl list-units --type=service --state=active
+
+# List ALL services (including inactive)
+systemctl list-units --type=service --all
+```
+
 
 
 
