@@ -1,0 +1,38 @@
+# Service Health Guardian Configuration
+
+# Global settings
+global:
+  check_interval: 60  # seconds
+  log_level: INFO
+  log_file: /var/log/service-guardian/guardian.log
+
+# Services to monitor
+services:
+  # Example service configuration
+  nginx:
+    check_interval: 30  # Override global interval
+    memory_threshold: 90  # Percentage
+    cpu_threshold: 80    # Percentage
+    auto_restart: true   # Automatically restart if service fails
+    
+  postgresql:
+    check_interval: 60
+    memory_threshold: 85
+    cpu_threshold: 75
+    auto_restart: false
+    
+  # Add more services as needed
+  # docker:
+  #   check_interval: 45
+  #   memory_threshold: 80
+  #   cpu_threshold: 70
+  #   auto_restart: true
+
+# Alert settings
+alerts:
+  email:
+    enabled: false
+    smtp_server: smtp.example.com
+    smtp_port: 587
+    from_address: guardian@example.com
+    to_address: admin@example.com 
