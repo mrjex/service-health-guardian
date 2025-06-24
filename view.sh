@@ -1,10 +1,16 @@
-# Service management
+# Enable and start the service
+sudo systemctl enable service-guardian
 sudo systemctl start service-guardian
+
+# Check status
 sudo systemctl status service-guardian
 
-# Log viewing
+# View logs
 journalctl -u service-guardian -f
 
-# Resource monitoring
-top -p $(pgrep -f service-guardian)
-htop -p $(pgrep -f service-guardian)
+
+resourceMonitoring() {
+    top -p $(pgrep -f service-guardian)
+    htop -p $(pgrep -f service-guardian)
+}
+
