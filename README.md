@@ -15,13 +15,23 @@
 ## Linux Management / Administration
 
 
-In the **/etc** directory:
+Configuration in the **/etc** directory:
 
 ```bash
 sudo mkdir -p /etc/service-guardian/
 sudo cp config/guardian.yaml /etc/service-guardian/
 sudo cp systemd/service-guardian.service /etc/systemd/system/
 ```
+
+Service file in the **/etc/systemd/system** directory
+
+
+
+Logs in the **/var/log** directory
+
+
+
+
 
 
 ## Configuration
