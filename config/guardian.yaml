@@ -8,25 +8,11 @@ global:
 
 # Services to monitor
 services:
-  # Example service configuration
-  postgresql:
-    check_interval: 60
-    memory_threshold: 85
-    cpu_threshold: 75
-    auto_restart: false
-
-  docker:
-    check_interval: 45
-    memory_threshold: 80
-    cpu_threshold: 70
-    auto_restart: true
-
+  - postgresql
+  - docker
   # Add more services as needed
-  # nginx:
-  #   check_interval: 30  # Override global interval
-  #   memory_threshold: 90  # Percentage
-  #   cpu_threshold: 80    # Percentage
-  #   auto_restart: true   # Automatically restart if service fails
+  # - nginx
+  # - apache2
 
 # Alert settings
 alerts:

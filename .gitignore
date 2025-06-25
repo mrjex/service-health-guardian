@@ -37,8 +37,6 @@ ENV/
 *.log
 logs/
 
-# Poetry
-poetry.lock
 
 # Tox
 .tox/
