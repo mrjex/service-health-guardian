@@ -56,27 +56,10 @@ Periodically checks the configured `systemd` services and their correspodning st
 **TODO:** Refer to the specific *.yaml* file here
 
 
+```bash
+# Check status of a service
+service-health-guardian postgresql
 
-## Metrics Collected
-
-- CPU usage percentage
-
-- Memory usage percentage
-
-- Disk I/O
-
-- Process status (running/stopped/failed)
-
-- Error logs
-
-- Restart counts
-
-
-Sample log output:
-
-```
-[INFO] nginx.service: CPU: 2.5%, Memory: 125MB, Status: active
-[INFO] postgresql.service: CPU: 4.1%, Memory: 450MB, Status: active
-[WARN] mongodb.service: Memory usage above threshold (92%)
-[ERROR] docker.service: Service stopped unexpectedly, attempting restart
+# With custom config file
+service-health-guardian --config /path/to/config.yaml postgresql
 ```

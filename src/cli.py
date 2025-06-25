@@ -11,31 +11,31 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def check_service(args: argparse.Namespace) -> None:
-    """Check status of a service."""
+def check_services(args: argparse.Namespace) -> None:
+    """Check status of all configured services."""
     try:
         monitor = ServiceMonitor(args.config)
-        status = monitor.check_service_status(args.service_name)
-        print(f"\nService: {args.service_name}")
-        print(f"Status: {status}")
+        services = monitor.check_all_services()
+        
+        print("\nService Statuses:")
+        print("-----------------")
+        for service_name, status in services.items():
+            print(f"{service_name}: {status}")
+            
     except Exception as e:
-        logger.error(f"Error checking service: {e}")
+        logger.error(f"Error checking services: {e}")
         sys.exit(1)
 
 def main() -> None:
     """CLI entry point."""
     parser = argparse.ArgumentParser(
-        description="Service Health Guardian - Simple service status monitor"
+        description="Service Health Guardian - Monitor service statuses"
     )
     parser.add_argument(
         '--config', '-c',
         help='Path to configuration file',
         default=None
     )
-    parser.add_argument(
-        'service_name',
-        help='Name of the service to check'
-    )
     
     args = parser.parse_args()
-    check_service(args) 
+    check_services(args) 

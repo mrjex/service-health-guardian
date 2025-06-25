@@ -2,6 +2,7 @@
 
 import subprocess
 import logging
+from typing import Dict
 from .config import Config
 
 logger = logging.getLogger(__name__)
@@ -14,9 +15,6 @@ class ServiceMonitor:
     
     def check_service_status(self, service_name: str) -> str:
         """Check status of a service using systemctl."""
-        if service_name not in self.config.get_monitored_services():
-            raise KeyError(f"Service {service_name} not configured for monitoring")
-        
         try:
             result = subprocess.run(
                 ['systemctl', 'is-active', service_name],
@@ -27,4 +25,12 @@ class ServiceMonitor:
             return result.stdout.strip()
         except subprocess.SubprocessError as e:
             logger.error(f"Error getting status for {service_name}: {e}")
-            return "unknown" 
+            return "unknown"
+    
+    def check_all_services(self) -> Dict[str, str]:
+        """Check status of all configured services."""
+        services = self.config.get_monitored_services()
+        return {
+            service: self.check_service_status(service)
+            for service in services
+        } 

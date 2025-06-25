@@ -1,25 +1,30 @@
 ###   POETRY LIFECYCLE   ##
 #
-# -  Prerequesite: Poetry installed
+# -  This script is intended for developers or colleagues who want to work on the project
 
 
-poetry install
+
+setupPoetry() {
+    echo "---   1. SETUP POETRY   ---"
+    poetry lock # Fix the lock file
+    poetry install
+}
+
+runServiceGuardian() {
+    echo "---   2. RUN SERVICE GUARDIAN   ---"
+    poetry run service-health-guardian --help
+    poetry run service-health-guardian --config config/guardian.yaml cron
+}
+
+packageServiceGuardian() {
+    echo "---   3. PACKAGE SERVICE GUARDIAN   ---"
+    poetry build  # Creates both .whl and .tar.gz
+}
 
 
-poetry run service-guardian --help
 
+##  MAIN  ##
 
-poetry run service-guardian list
-poetry run service-guardian check sshd
-
-poetry build  # Creates both .whl and .tar.gz
-
-
-poetry lock # Fix the lock file
-
-
-# poetry env info
-
-# eval $(poetry env activate)
-
-
+setupPoetry
+runServiceGuardian
+packageServiceGuardian

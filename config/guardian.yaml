@@ -1,24 +1,16 @@
-# Service Health Guardian Configuration
-
-# Global settings
-global:
-  check_interval: 60  # seconds
-  log_level: INFO
-  log_file: /var/log/service-guardian/guardian.log
-
 # Services to monitor
 services:
-  - postgresql
+  - cron
+  - snapd
+  - sshd
+  - nginx
   - docker
+  - apache2
+  - postgresql
+  - mysql
+
   # Add more services as needed
+  # - postgresql
+  # - docker
   # - nginx
   # - apache2
-
-# Alert settings
-alerts:
-  email:
-    enabled: false
-    smtp_server: smtp.example.com
-    smtp_port: 587
-    from_address: guardian@example.com
-    to_address: admin@example.com 
