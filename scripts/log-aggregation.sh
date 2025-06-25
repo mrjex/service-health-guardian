@@ -1,3 +1,9 @@
+##  LOG AGGREGATION  ##
+#
+# - Takes a systemd service as input argument and returns corresponding real-time logs
+
+
+
 SERVICE_NAME="docker"
 
 
