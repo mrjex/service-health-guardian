@@ -18,6 +18,7 @@ pytest = "^7.0.0"
 pytest-cov = "^4.1.0"
 types-PyYAML = "^6.0.0"
 tox = "^4.12.1"
+codespell = "^2.2.6"
 
 [build-system]
 requires = ["poetry-core"]
@@ -46,7 +47,7 @@ target-version = ["py38"]
 preview = true
 
 [tool.ruff]
-line-length = 88
+line-length = 130
 target-version = "py38"
 
 [tool.ruff.lint]
@@ -63,6 +64,7 @@ select = [
     "A",   # builtins
     "COM", # trailing comma
     "T20", # print statements
+    "N",   # pep8-naming
 ]
 ignore = []
 
@@ -71,4 +73,8 @@ combine-as-imports = true
 force-wrap-aliases = true
 
 [tool.ruff.lint.mccabe]
-max-complexity = 10 
+max-complexity = 10
+
+[tool.codespell]
+skip = '.git,*.pyc,*.html,*.css,*.js'
+ignore-words-list = '' 

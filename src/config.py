@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from typing import List
+
 import yaml
 
 DEFAULT_CONFIG_PATH = "/etc/service-guardian/guardian.yaml"

@@ -1,7 +1,7 @@
 """Tests for core service monitoring functionality."""
 
 import subprocess
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 import pytest
 
