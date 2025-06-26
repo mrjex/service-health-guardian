@@ -1,27 +1,43 @@
-# Distribution - TODO
+# Package Distribution Guide
 
-- Using *poetry*
+This document outlines how Service Health Guardian is distributed and deployed.
 
+## Build Process
 
-- `poetry build` to produce
-  - dist/*tar.gz
-  - dist/*.whl
+We use Poetry for package management and distribution. Poetry handles both dependency management and package building.
 
+### Building the Package
 
+To build distribution packages, run:
+```bash
+poetry build
+```
 
-The main purposes of these files are:
+This produces two files in the `dist/` directory:
+- `*.tar.gz` - Source distribution (sdist)
+- `*.whl` - Built distribution (wheel)
 
-**1. Distribution**
+## Distribution Methods
 
-- Share the package on *PyPI*
-- Allow others to install via *pip*
+### 1. PyPI Distribution
+The package can be shared on the Python Package Index (PyPI), allowing users to install it via pip:
+```bash
+pip install service-health-guardian
+```
 
-**2. Deployment**
+### 2. Production Deployment
+- Supports direct installation in production environments
+- Enables version control of releases
+- Can be installed via pip from a private package repository
+- Supports installation from local distribution files:
+  ```bash
+  pip install dist/service-health-guardian-*.whl
+  ```
 
-- Install in production environments
-- Version control of releases
+### 3. Testing and Verification
+- Distribution packages can be tested in isolated environments
+- Verify installation process works as expected
 
-
-**3. Testing**
-
-- Verify package installation works
+## Best Practices
+- Always update version numbers in pyproject.toml before building
+- Test the built package in a clean virtual environment
