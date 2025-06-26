@@ -21,7 +21,7 @@ tox = "^4.12.1"
 codespell = "^2.2.6"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.7.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
