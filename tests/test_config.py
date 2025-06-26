@@ -6,6 +6,7 @@ from src.config import Config
 
 EXPECTED_DEFAULT_SERVICES = 2
 
+
 def test_load_config(sample_config):
     """Test loading a valid configuration file."""
     config = Config(config_path=sample_config)

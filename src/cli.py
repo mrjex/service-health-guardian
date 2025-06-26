@@ -7,7 +7,8 @@ import sys
 from .core import ServiceMonitor
 
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
 )
 logger = logging.getLogger(__name__)
 
@@ -34,7 +35,10 @@ def main() -> None:
         description="Service Health Guardian - Monitor service statuses",
     )
     parser.add_argument(
-        "--config", "-c", help="Path to configuration file", default=None,
+        "--config",
+        "-c",
+        help="Path to configuration file",
+        default=None,
     )
 
     args = parser.parse_args()

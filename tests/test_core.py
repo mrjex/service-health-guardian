@@ -63,7 +63,7 @@ def test_check_all_services(service_monitor, mock_config):
         mock_check.side_effect = ["active", "inactive"]
 
         results = service_monitor.check_all_services()
-        
+
         assert len(results) == EXPECTED_SERVICE_COUNT
         assert results == {"test-service": "active", "another-service": "inactive"}
         assert mock_check.call_count == EXPECTED_SERVICE_COUNT
