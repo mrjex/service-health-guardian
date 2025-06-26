@@ -10,7 +10,7 @@ services:
   - mysql
 
   # Add more services as needed
-  # - postgresql
-  # - docker
-  # - nginx
-  # - apache2
+  # - dbus
+  # - snapd.apparmor
+  # - qemu-kvm
+  # - inetd

@@ -1,22 +1,11 @@
 # Service Health Guardian
 
-This tool monitors `systemd` services (background processes/daemons that run on Linux systems), handling everything from your network stack to databases to web servers. Common examples include nginx (web server), postgresql (database), docker.service (container runtime), or ssh.service (secure shell).
+> A CLI tool that monitors `systemd` services using using `systemctl` and `journalctl` commands.
 
-- a Python CLI tool that monitors systemd services defined in a YAML configuration file
-- It uses systemctl commands under the hood to interact with systemd services, with configuration managed by Poetry and testing handled by tox.
 
 ## Get Started
 
-
-1. Install *poetry*
-
-```
-sudo apt install python3-poetry
-```
-
-
-
-To check all available services on your system:
+1. Check the available services on your system:
 
 ```bash
 # List all active services
@@ -26,40 +15,28 @@ systemctl list-units --type=service --state=active
 systemctl list-units --type=service --all
 ```
 
+2. Add services to `config/guardian.yaml`
 
-
-
-## Linux Management / Administration
-
-
-Configuration in the **/etc** directory:
-
-```bash
-sudo mkdir -p /etc/service-guardian/
-sudo cp config/guardian.yaml /etc/service-guardian/
-sudo cp systemd/service-guardian.service /etc/systemd/system/
+```yaml
+services:
+  - cron
+  - snapd
+  - sshd
+  - nginx
+  - ...
 ```
 
-Service file in the **/etc/systemd/system** directory
-
-
-
-Logs in the **/var/log** directory
-
-
-
-
-## Configuration
-
-Periodically checks the configured `systemd` services and their correspodning status
-
-**TODO:** Refer to the specific *.yaml* file here
-
+3. Setup virtual environment:
 
 ```bash
-# Check status of a service
-service-health-guardian postgresql
+poetry lock
 
-# With custom config file
-service-health-guardian --config /path/to/config.yaml postgresql
+poetry install
+```
+
+4. Run service:
+
+```bash
+poetry run service-health-guardian --help
+poetry run service-health-guardian --config config/guardian.yaml
 ```

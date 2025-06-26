@@ -13,7 +13,7 @@ setupPoetry() {
 runServiceGuardian() {
     echo "---   2. RUN SERVICE GUARDIAN   ---"
     poetry run service-health-guardian --help
-    poetry run service-health-guardian --config config/guardian.yaml cron
+    poetry run service-health-guardian --config config/guardian.yaml
 }
 
 packageServiceGuardian() {
