@@ -1,36 +1,27 @@
+#!/bin/bash
+
 ##  LOG AGGREGATION  ##
 #
-# - Takes a systemd service as input argument and returns corresponding real-time logs
+# - Functions for checking service status and logs
+# - Each function takes a service name as its only argument
 
-
-
-SERVICE_NAME="docker"
-
+serviceIsActive() {
+    local service_name="$1"
+    systemctl is-active "$service_name.service"
+}
 
 getServiceDetails() {
-    # Get detailed status of a specific service (example: nginx)
-    systemctl status $SERVICE_NAME.service
-
-    # View real-time resource usage of a service
-    ps aux | grep $SERVICE_NAME
-    top -p $(pgrep $SERVICE_NAME)
+    local service_name="$1"
+    # Get detailed status of the service
+    systemctl status "$service_name.service"
+    
+    # View resource usage
+    ps aux | grep "$service_name"
+    top -p $(pgrep "$service_name")
 }
-
 
 getServiceLogs() {
-    # View logs of any service (example: nginx)
-    journalctl -u $SERVICE_NAME.service
-
-    # View last 50 lines
-    journalctl -u $SERVICE_NAME.service -n 50
-
-    # Follow logs in real-time
-    journalctl -u $SERVICE_NAME.service -f
-
+    local service_name="$1"
     # View logs with timestamps
-    journalctl -u $SERVICE_NAME.service --output=short-precise
+    journalctl -u "$service_name.service" --output=short-precise -n 50 -f
 }
-
-
-getServiceDetails
-getServiceLogs

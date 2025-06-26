@@ -1,13 +1,23 @@
+#!/bin/bash
+
 ##  SHELL SOLUTION  ##
 #
-# -  This script is my shell implementation of this project, as opposed to using Python
+# - Shell implementation of service monitoring using functions from log-aggregation.sh
 
+# Source the functions
+source "$(dirname "$0")/log-aggregation.sh"
 
+# Read and parse services from guardian.yaml
+while IFS=': ' read -r line; do
+    if [[ $line =~ ^[[:space:]]*-[[:space:]]*([^#[:space:]]+) ]]; then
+        service="${BASH_REMATCH[1]}"
+        echo "Checking service: $service"
+        status=$(serviceIsActive "$service")
+        echo "Status: $status"
+    fi
+done < "../config/guardian.yaml"
 
-# TODO:
-# -  Parse .yaml file
-# -  Iterate through services
-# -  Check status of each service
-
-
-# REMINDER: Import/source log-aggregation.sh functions for the current service in the loop
+# Example of how to use individual functions:
+# serviceIsActive "nginx"
+# getServiceDetails "postgresql"
+# getServiceLogs "docker"
