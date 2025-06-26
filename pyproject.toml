@@ -77,5 +77,4 @@ force-wrap-aliases = true
 max-complexity = 10
 
 [tool.codespell]
-skip = '.git,*.pyc,*.html,*.css,*.js'
-ignore-words-list = '' 
+skip = '.git,*.pyc,*.html,*.css,*.js' 

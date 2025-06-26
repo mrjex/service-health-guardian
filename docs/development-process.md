@@ -1,6 +1,6 @@
 # Development Process
 
-Note that step 2 and 3 occured simultanously in a back and forth iterative fashion, as the core functionality served as the baseline for the tests.
+Note that step 2 and 3 occurred simultaneously in a back and forth iterative fashion, as the core functionality served as the baseline for the tests.
 
 1. Ideation (CLI blueprint & blueprint shell scripts)
     - CLI blueprint: Specific actions and ideation of functionality that it should support
@@ -8,7 +8,7 @@ Note that step 2 and 3 occured simultanously in a back and forth iterative fashi
 
 2. Setup (Folder structure & Tests)
     - Setup the main folders and files, such that it makes inituitive sense and to get an understanding of how exactly this repository would accommodate for the functionality I concluded in the previous ideation phase (backend logic)
-    - Setting up tools for code compliance and tests, serving as a continious basis in which I can evaluate my code quality, utilizing linting, formatting and type checks.
+    - Setting up tools for code compliance and tests, serving as a continuous basis in which I can evaluate my code quality, utilizing linting, formatting and type checks.
 
 
 3. Core (Functionality & Unit tests)
