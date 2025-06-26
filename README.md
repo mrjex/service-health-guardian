@@ -44,4 +44,4 @@ poetry run service-health-guardian --config config/guardian.yaml
 
 ## Tests
 
-![unit-tests](assets/unit-tests.PNG)
+![unit-tests](assets/unit-tests.jpg)

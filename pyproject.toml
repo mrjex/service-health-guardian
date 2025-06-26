@@ -30,10 +30,11 @@ service-health-guardian = "src.cli:main"
 [tool.coverage.run]
 branch = true
 source = ["src"]
+omit = ["src/cli.py"]
 
 [tool.coverage.report]
 show_missing = true
-skip_covered = true
+skip_covered = false
 fail_under = 80
 
 [tool.pytest.ini_options]

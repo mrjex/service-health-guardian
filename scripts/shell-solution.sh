@@ -17,7 +17,7 @@ while IFS=': ' read -r line; do
     fi
 done < "../config/guardian.yaml"
 
-# Example of how to use individual functions:
+# Example of how to use other individual functions from log-aggregation.sh:
 # serviceIsActive "nginx"
 # getServiceDetails "postgresql"
 # getServiceLogs "docker"
