@@ -20,10 +20,14 @@ class Config:
         """Load services from YAML file."""
         try:
             with self.config_path.open() as f:
-                config = yaml.safe_load(f) or {}  # Handle empty files by defaulting to empty dictionary
+                config = (
+                    yaml.safe_load(f) or {}
+                )  # Handle empty files by defaulting to empty dictionary
                 self.services = config.get("services", [])
         except FileNotFoundError as err:
-            raise FileNotFoundError(f"Configuration file not found: {self.config_path}") from err
+            raise FileNotFoundError(
+                f"Configuration file not found: {self.config_path}"
+            ) from err
         except yaml.YAMLError as err:
             raise ValueError(f"Invalid YAML configuration: {err}") from err
 
