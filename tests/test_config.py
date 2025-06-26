@@ -4,12 +4,13 @@ import pytest
 
 from src.config import Config
 
+EXPECTED_DEFAULT_SERVICES = 2
 
 def test_load_config(sample_config):
     """Test loading a valid configuration file."""
     config = Config(config_path=sample_config)
     services = config.get_monitored_services()
-    assert len(services) == 2
+    assert len(services) == EXPECTED_DEFAULT_SERVICES
     assert "test-service" in services
     assert "another-service" in services
 

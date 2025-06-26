@@ -12,10 +12,10 @@ logger = logging.getLogger(__name__)
 class ServiceMonitor:
     """Simple service status monitor."""
 
-    def __init__(self, config_path: str = None):
+    def __init__(self, config_path: Optional[str] = None):
         self.config = Config(config_path) if config_path else Config()
 
-    def check_service_status(self, service_name: str) -> Optional[str]:
+    def check_service_status(self, service_name: str) -> str:
         """Check status of a service using systemctl."""
         try:
             result = subprocess.run(
