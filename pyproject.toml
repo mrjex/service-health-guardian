@@ -2,7 +2,7 @@
 name = "service-health-guardian"
 version = "0.1.0"
 description = "A systemd service monitoring and management tool"
-authors = ["Joel Mattsson joel.mattsson@hotmail.se"]
+authors = ["Joel Mattsson <joel.mattsson@hotmail.se>"]
 readme = "README.md"
 packages = [{include = "src"}]
 
