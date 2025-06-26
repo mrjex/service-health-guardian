@@ -26,7 +26,7 @@ class Config:
                 self.services = config.get("services", [])
         except FileNotFoundError as err:
             raise FileNotFoundError(
-                f"Configuration file not found: {self.config_path}"
+                f"Configuration file not found: {self.config_path}",
             ) from err
         except yaml.YAMLError as err:
             raise ValueError(f"Invalid YAML configuration: {err}") from err
