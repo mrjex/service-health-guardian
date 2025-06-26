@@ -12,11 +12,9 @@ Note that step 2 and 3 occured simultanously in a back and forth iterative fashi
 
 
 3. Core (Functionality & Unit tests)
-    - Text
-    - Text
+    - The main features of the repository
+    - The isolated tests for each feature
 
+4. CI Pipeline
 
-4. Additional (Functionality & Features)
-    - Text
-    - Text
-
+5. Future Extensions

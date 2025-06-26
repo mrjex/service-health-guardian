@@ -1,6 +1,11 @@
 # Service Health Guardian
 
-> A CLI tool that monitors `systemd` services using using `systemctl` and `journalctl` commands.
+[![CI](https://github.com/YOUR_USERNAME/service-health-guardian/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/service-health-guardian/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/YOUR_USERNAME/service-health-guardian/branch/main/graph/badge.svg)](https://codecov.io/gh/YOUR_USERNAME/service-health-guardian)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+> A CLI tool that monitors `systemd` services using `systemctl` and `journalctl` commands.
 
 
 ## Get Started
