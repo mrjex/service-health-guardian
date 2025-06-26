@@ -7,19 +7,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.10"
         
     - name: Install Poetry
       uses: snok/install-poetry@v1
@@ -28,25 +24,35 @@ jobs:
         virtualenvs-create: true
         virtualenvs-in-project: true
         
-    - name: Load cached venv
-      id: cached-poetry-dependencies
-      uses: actions/cache@v3
-      with:
-        path: .venv
-        key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
-        
     - name: Install dependencies
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction
       
     - name: Run linting
-      run: |
-        poetry run ruff check .
-        poetry run black --check .
-        poetry run codespell
+      run: poetry run tox -e lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
         
-    - name: Run tests with coverage
-      run: poetry run pytest --cov --cov-branch --cov-report=xml
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: 1.7.1
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+        
+    - name: Install dependencies
+      run: poetry install --no-interaction
+      
+    - name: Run tests across Python versions
+      run: poetry run tox -e py38,py39,py310
       
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
