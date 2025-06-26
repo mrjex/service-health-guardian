@@ -40,3 +40,8 @@ poetry install
 poetry run service-health-guardian --help
 poetry run service-health-guardian --config config/guardian.yaml
 ```
+
+
+## Tests
+
+![unit-tests](assets/unit-tests.PNG)
