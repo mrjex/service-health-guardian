@@ -20,7 +20,8 @@ jobs:
     - name: Install Poetry
       run: |
         python -m pip install --no-cache-dir --upgrade pip
-        python -m pip install --no-cache-dir poetry==1.8.2
+        python -m pip install --no-cache-dir poetry-core==1.7.0
+        python -m pip install --no-cache-dir poetry==1.7.1
         
     - name: Install dependencies
       run: poetry install --no-interaction
@@ -45,12 +46,13 @@ jobs:
     - name: Install Poetry
       run: |
         python -m pip install --no-cache-dir --upgrade pip
-        python -m pip install --no-cache-dir poetry==1.8.2
+        python -m pip install --no-cache-dir poetry-core==1.7.0
+        python -m pip install --no-cache-dir poetry==1.7.1
         
     - name: Install dependencies
       run: poetry install --no-interaction
       
-    - name: Run tests
+    - name: Test with tox
       run: poetry run tox -e py$(echo ${{ matrix.python-version }} | tr -d .)
       
     - name: Upload coverage reports to Codecov
