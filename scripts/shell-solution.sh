@@ -1,5 +1,3 @@
-#!/bin/bash
-
 ##  SHELL SOLUTION  ##
 #
 # - Shell implementation of service monitoring using functions from log-aggregation.sh

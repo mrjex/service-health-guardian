@@ -1,5 +1,3 @@
-#!/bin/bash
-
 ##  LOG AGGREGATION  ##
 #
 # - Functions for checking service status and logs
@@ -12,6 +10,7 @@ serviceIsActive() {
 
 getServiceDetails() {
     local service_name="$1"
+
     # Get detailed status of the service
     systemctl status "$service_name.service"
     
@@ -22,6 +21,7 @@ getServiceDetails() {
 
 getServiceLogs() {
     local service_name="$1"
+
     # View logs with timestamps
     journalctl -u "$service_name.service" --output=short-precise -n 50 -f
 }
